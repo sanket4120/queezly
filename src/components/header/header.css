@@ -1,0 +1,15 @@
+.navbar-item a:not(.btn a):hover {
+  color: var(--primary);
+}
+
+.navbar-item a.active:not(.btn a.active) {
+  color: var(--primary);
+  border-bottom: 2px var(--primary) solid;
+}
+
+@media (max-width: 768px) {
+  nav {
+    position: sticky;
+    z-index: 100;
+  }
+}
