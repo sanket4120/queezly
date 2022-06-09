@@ -1,0 +1,33 @@
+:root {
+  --primary: #fcc822;
+  --font-color: #333333;
+}
+
+.app {
+  color: var(--font);
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+}
+
+.minheight {
+  min-height: 80vh;
+}
+
+.close {
+  cursor: pointer;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

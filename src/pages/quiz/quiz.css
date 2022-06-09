@@ -1,0 +1,7 @@
+.option:hover {
+  cursor: pointer;
+}
+
+.quiz-container {
+  max-width: 50rem;
+}
