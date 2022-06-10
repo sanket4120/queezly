@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './rules.css';
 
-const Rules = () => {
+const Rules = ({ startQuiz, duration }) => {
   return (
     <main className='py-6'>
       <h3 className='mb-5 size-3 txt-center'>Rules</h3>
@@ -17,7 +16,7 @@ const Rules = () => {
         </li>
         <li>
           <i className='fa-solid fa-angle-right mr-2'></i>Total duration of the
-          quiz will be 30 min
+          quiz will be {duration} min
         </li>
         <li>
           <i className='fa-solid fa-angle-right mr-2'></i>Each multiple choice
@@ -26,9 +25,9 @@ const Rules = () => {
       </ul>
 
       <div className='txt-center'>
-        <Link to='/quiz' className='btn btn-primary'>
+        <button className='btn btn-primary' onClick={startQuiz}>
           Lets Start
-        </Link>
+        </button>
       </div>
     </main>
   );

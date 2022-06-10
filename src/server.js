@@ -3,13 +3,11 @@ import {
   loginHandler,
   signupHandler,
 } from './backend/controllers/AuthController';
-import {
-  getAllCategoriesHandler,
-  getCategoryHandler,
-} from './backend/controllers/CategoryController';
+import { getAllCategoriesHandler } from './backend/controllers/CategoryController';
 import {
   getAllQuizHandler,
   getQuizHandler,
+  getQuizByCategory,
 } from './backend/controllers/QuizController';
 import { categories } from './backend/db/categories';
 import { quiz } from './backend/db/quiz';
@@ -49,12 +47,12 @@ export function makeServer({ environment = 'development' } = {}) {
       this.post('/auth/login', loginHandler.bind(this));
 
       // products routes (public)
-      this.get('/products', getAllQuizHandler.bind(this));
-      this.get('/products/:productId', getQuizHandler.bind(this));
+      this.get('/quiz', getAllQuizHandler.bind(this));
+      this.get('/quiz/:quizId', getQuizHandler.bind(this));
 
       // categories routes (public)
-      this.get('/categories', getAllCategoriesHandler.bind(this));
-      this.get('/categories/:categoryId', getCategoryHandler.bind(this));
+      this.get('/category', getAllCategoriesHandler.bind(this));
+      this.get('/category/:categoryId', getQuizByCategory.bind(this));
     },
   });
 }
