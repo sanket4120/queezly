@@ -24,6 +24,6 @@ const UserProvider = ({ children }) => {
   );
 };
 
-export const useUser = () => useContext(UserContext);
+const useUser = () => useContext(UserContext);
 
-export default UserProvider;
+export { UserProvider, useUser };

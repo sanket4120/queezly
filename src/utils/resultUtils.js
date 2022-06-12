@@ -1,4 +1,4 @@
-export const getScore = (currentQuiz) => {
+const getScore = (currentQuiz) => {
   const total = currentQuiz.questions.length * 10;
   let score = 0;
   currentQuiz.questions.forEach((question) => {
@@ -10,3 +10,5 @@ export const getScore = (currentQuiz) => {
 
   return { total, score };
 };
+
+export { getScore };

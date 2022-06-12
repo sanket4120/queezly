@@ -36,4 +36,4 @@ const QuizCard = ({ quiz }) => {
   );
 };
 
-export default QuizCard;
+export { QuizCard };

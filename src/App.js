@@ -1,18 +1,18 @@
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/header/Header';
-import Category from './pages/category/Category';
-import Homepage from './pages/homepage/Homepage';
-import Login from './pages/auth/Login';
-import Signup from './pages/auth/Signup';
-import QuizList from './pages/quizList/QuizList';
+import { Header } from './components/header/Header';
+import { Category } from './pages/category/Category';
+import { Homepage } from './pages/homepage/Homepage';
+import { Login } from './pages/auth/Login';
+import { Signup } from './pages/auth/Signup';
+import { QuizList } from './pages/quizList/QuizList';
+import { Rules } from './pages/rules/Rules';
+import { Quiz } from './pages/quiz/Quiz';
+import { Result } from './pages/result/Result';
+import { Messages } from './components/messages/Messages';
+import { GlobalProvider } from './context/globalContext';
+import { Account } from './pages/account/Account';
+import { AuthRequired } from './components/authRequired/AuthRequired';
 import './App.css';
-import Rules from './pages/rules/Rules';
-import Quiz from './pages/quiz/Quiz';
-import Result from './pages/result/Result';
-import Messages from './components/messages/Messages';
-import GlobalProvider from './context/globalContext';
-import Account from './pages/account/Account';
-import AuthRequired from './components/authRequired/AuthRequired';
 
 function App() {
   return (

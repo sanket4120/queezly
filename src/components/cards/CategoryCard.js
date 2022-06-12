@@ -24,4 +24,4 @@ const CategoryCard = ({ category }) => {
   );
 };
 
-export default CategoryCard;
+export { CategoryCard };

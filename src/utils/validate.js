@@ -1,4 +1,4 @@
-export const validateSignupField = (name, value, formData) => {
+const validateSignupField = (name, value, formData) => {
   switch (name) {
     case 'firstName':
       return value.length >= 2 && /^[a-zA-Z ]*$/.test(value)
@@ -28,7 +28,7 @@ export const validateSignupField = (name, value, formData) => {
   }
 };
 
-export const validateLoginField = (name, value, formData) => {
+const validateLoginField = (name, value, formData) => {
   switch (name) {
     case 'email':
       return value === '' ? 'Email is required' : '';
@@ -41,7 +41,7 @@ export const validateLoginField = (name, value, formData) => {
   }
 };
 
-export const validateSignup = (formData) => {
+const validateSignup = (formData) => {
   let isValid = true;
   const errors = {};
   for (const fieldName in formData.errors) {
@@ -54,7 +54,7 @@ export const validateSignup = (formData) => {
   return { isValid, errors };
 };
 
-export const validateLogin = (formData) => {
+const validateLogin = (formData) => {
   let isValid = true;
   const errors = {};
   for (const fieldName in formData.errors) {
@@ -67,7 +67,7 @@ export const validateLogin = (formData) => {
   return { isValid, errors };
 };
 
-export const validateAddressField = (name, value, formData) => {
+const validateAddressField = (name, value, formData) => {
   switch (name) {
     case 'firstName':
       return value.length >= 2 && /^[a-zA-Z ]*$/.test(value)
@@ -99,7 +99,7 @@ export const validateAddressField = (name, value, formData) => {
   }
 };
 
-export const validateAddress = (formData) => {
+const validateAddress = (formData) => {
   let isValid = true;
   const errors = {};
   for (const fieldName in formData.errors) {
@@ -114,4 +114,13 @@ export const validateAddress = (formData) => {
     }
   }
   return { isValid, errors };
+};
+
+export {
+  validateAddress,
+  validateAddressField,
+  validateLogin,
+  validateSignup,
+  validateLoginField,
+  validateSignupField,
 };

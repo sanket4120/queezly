@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import { getCategories } from '../../actions/categoryActions';
-import CategoryCard from '../../components/cards/CategoryCard';
-import Loader from '../../components/loader/Loader';
+import { CategoryCard } from '../../components/cards/CategoryCard';
+import { Loader } from '../../components/loader/Loader';
 import { useCategory } from '../../context/categoryContext';
+import { useDocumentTitle } from '../../utils/useDocumentTitle';
 
 const Category = () => {
+  useDocumentTitle('Queezly | Category');
+
   const {
     categoryState: { loading, categories },
     setCategory,
@@ -36,4 +39,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export { Category };

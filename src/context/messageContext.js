@@ -13,6 +13,6 @@ const MessageProvider = ({ children }) => {
   );
 };
 
-export const useMessage = () => useContext(MessageContext);
+const useMessage = () => useContext(MessageContext);
 
-export default MessageProvider;
+export { MessageProvider, useMessage };

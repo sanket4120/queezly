@@ -97,4 +97,4 @@ const useUserSignup = () => {
   };
 };
 
-export default useUserSignup;
+export { useUserSignup };

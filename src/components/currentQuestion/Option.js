@@ -24,4 +24,4 @@ const Option = ({ option, background }) => {
   );
 };
 
-export default Option;
+export { Option };

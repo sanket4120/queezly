@@ -10,7 +10,7 @@ import {
 } from '../constants/userConstants';
 import { setMessage } from './messageActions';
 
-export const signup = async (dispatch, setMessages, userDetails) => {
+const signup = async (dispatch, setMessages, userDetails) => {
   dispatch({ type: USER_SIGNUP_REQUEST });
 
   try {
@@ -34,7 +34,7 @@ export const signup = async (dispatch, setMessages, userDetails) => {
   }
 };
 
-export const login = async (dispatch, setMessages, loginCredentials) => {
+const login = async (dispatch, setMessages, loginCredentials) => {
   dispatch({ type: USER_LOGIN_REQUEST });
 
   try {
@@ -58,7 +58,9 @@ export const login = async (dispatch, setMessages, loginCredentials) => {
   }
 };
 
-export const logout = (dispatch) => {
+const logout = (dispatch) => {
   dispatch({ type: USER_LOGOUT });
   document.location.href = '/';
 };
+
+export { signup, login, logout };

@@ -5,7 +5,7 @@ import {
   CATEGORY_FAIL,
 } from '../constants/categoryConstants';
 
-export const getCategories = async (dispatch) => {
+const getCategories = async (dispatch) => {
   dispatch({ type: CATEGORY_REQUEST });
   try {
     const res = await axios.get('/api/category');
@@ -14,3 +14,5 @@ export const getCategories = async (dispatch) => {
     dispatch({ type: CATEGORY_FAIL, payload: 'Server Error' });
   }
 };
+
+export { getCategories };

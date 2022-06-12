@@ -12,4 +12,4 @@ const AuthRequired = () => {
   );
 };
 
-export default AuthRequired;
+export { AuthRequired };

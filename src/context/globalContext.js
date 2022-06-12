@@ -1,6 +1,6 @@
 import { createContext } from 'react';
-import UserProvider from './userContext';
-import MessageProvider from './messageContext';
+import { UserProvider } from './userContext';
+import { MessageProvider } from './messageContext';
 import { CategoryProvider } from './categoryContext';
 import { QuizProvider } from './quizContext';
 import { ResultProvider } from './resultContext';
@@ -24,4 +24,4 @@ const GlobalProvider = ({ children }) => {
   );
 };
 
-export default GlobalProvider;
+export { GlobalProvider };

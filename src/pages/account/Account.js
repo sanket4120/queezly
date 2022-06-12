@@ -3,9 +3,12 @@ import { getUserResults } from '../../actions/resultActions';
 import { logout } from '../../actions/userActions';
 import { useResult } from '../../context/resultContext';
 import { useUser } from '../../context/userContext';
-import Loader from '../../components/loader/Loader';
+import { Loader } from '../../components/loader/Loader';
+import { useDocumentTitle } from '../../utils/useDocumentTitle';
 
 const Account = () => {
+  useDocumentTitle('Queezly | Account');
+
   const {
     setAuth,
     authState: { userInfo },
@@ -88,4 +91,4 @@ const Account = () => {
   );
 };
 
-export default Account;
+export { Account };

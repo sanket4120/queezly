@@ -1,5 +1,5 @@
 import { useMessage } from '../../context/messageContext';
-import Message from './message/Message';
+import { Message } from './message/Message';
 import './messages.css';
 
 const Messages = () => {
@@ -16,4 +16,4 @@ const Messages = () => {
   );
 };
 
-export default Messages;
+export { Messages };

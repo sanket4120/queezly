@@ -1,23 +1,26 @@
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getQuiz } from '../../actions/quizActions';
-import Option from '../../components/currentQuestion/Option';
-import Question from '../../components/currentQuestion/Question';
+import { Option } from '../../components/currentQuestion/Option';
+import { Question } from '../../components/currentQuestion/Question';
 import { useQuiz } from '../../context/quizContext';
-import Loader from '../../components/loader/Loader';
-import './quiz.css';
-import {
-  NEXT_QUESTION,
-  PREVIOUS_QUESTION,
-} from '../../constants/quizConstants';
-import Rules from '../rules/Rules';
-import Timer from '../../components/timer/Timer';
+import { Loader } from '../../components/loader/Loader';
+import { Rules } from '../rules/Rules';
+import { Timer } from '../../components/timer/Timer';
 import { useUser } from '../../context/userContext';
 import { addResult } from '../../actions/resultActions';
 import { getScore } from '../../utils/resultUtils';
 import { useMessage } from '../../context/messageContext';
+import { useDocumentTitle } from '../../utils/useDocumentTitle';
+import {
+  NEXT_QUESTION,
+  PREVIOUS_QUESTION,
+} from '../../constants/quizConstants';
+import './quiz.css';
 
 const Quiz = () => {
+  useDocumentTitle('Queezly | Play');
+
   const { quizId } = useParams();
   const navigate = useNavigate();
   const {
@@ -135,4 +138,4 @@ const Quiz = () => {
   );
 };
 
-export default Quiz;
+export { Quiz };

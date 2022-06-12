@@ -1,11 +1,14 @@
 import { Navigate } from 'react-router-dom';
-import Option from '../../components/currentQuestion/Option';
-import Question from '../../components/currentQuestion/Question';
+import { Option } from '../../components/currentQuestion/Option';
+import { Question } from '../../components/currentQuestion/Question';
 import { useQuiz } from '../../context/quizContext';
 import { getScore } from '../../utils/resultUtils';
+import { useDocumentTitle } from '../../utils/useDocumentTitle';
 import './result.css';
 
 const Result = () => {
+  useDocumentTitle('Queezly | Result');
+
   const {
     currentQuizState: { currentQuiz },
   } = useQuiz();
@@ -63,4 +66,4 @@ const Result = () => {
   );
 };
 
-export default Result;
+export { Result };

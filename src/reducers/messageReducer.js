@@ -1,8 +1,8 @@
 import { REMOVE_MESSAGE, SET_MESSAGE } from '../constants/messageConstants';
 
-export const initialState = [];
+const initialState = [];
 
-export const messageReducer = (state, action) => {
+const messageReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -14,3 +14,5 @@ export const messageReducer = (state, action) => {
       return state;
   }
 };
+
+export { initialState, messageReducer };
