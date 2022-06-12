@@ -9,9 +9,16 @@ import {
   getQuizHandler,
   getQuizByCategory,
 } from './backend/controllers/QuizController';
+import {
+  addResult,
+  getResults,
+  getUserResults,
+} from './backend/controllers/ResultController';
+
 import { categories } from './backend/db/categories';
 import { quiz } from './backend/db/quiz';
 import { users } from './backend/db/users';
+import { results } from './backend/db/results';
 
 export function makeServer({ environment = 'development' } = {}) {
   return new Server({
@@ -23,6 +30,7 @@ export function makeServer({ environment = 'development' } = {}) {
       quiz: Model,
       category: Model,
       user: Model,
+      result: Model,
     },
 
     // Runs on the start of the server
@@ -33,11 +41,9 @@ export function makeServer({ environment = 'development' } = {}) {
         server.create('quiz', { ...item });
       });
 
-      users.forEach((item) =>
-        server.create('user', { ...item, cart: [], wishlist: [] })
-      );
-
+      users.forEach((item) => server.create('user', { ...item }));
       categories.forEach((item) => server.create('category', { ...item }));
+      results.forEach((item) => server.create('result', { ...item }));
     },
 
     routes() {
@@ -53,6 +59,11 @@ export function makeServer({ environment = 'development' } = {}) {
       // categories routes (public)
       this.get('/category', getAllCategoriesHandler.bind(this));
       this.get('/category/:categoryId', getQuizByCategory.bind(this));
+
+      // results route (private)
+      this.post('/results', addResult.bind(this));
+      this.get('/results', getResults.bind(this));
+      this.get('/results/:userId', getUserResults.bind(this));
     },
   });
 }

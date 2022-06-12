@@ -10,7 +10,7 @@ export const getCategories = async (dispatch) => {
   try {
     const res = await axios.get('/api/category');
     dispatch({ type: CATEGORY_SUCCESS, payload: res.data.categories });
-  } catch (e) {
+  } catch (error) {
     dispatch({ type: CATEGORY_FAIL, payload: 'Server Error' });
   }
 };
