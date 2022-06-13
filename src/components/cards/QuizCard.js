@@ -15,12 +15,8 @@ const QuizCard = ({ quiz }) => {
         <p>{quiz.description}</p>
         <ul className='list-unstyled mt-2'>
           <li>
-            <i className='fa-regular fa-star mr-2'></i>
-            {quiz.rating}
-          </li>
-          <li>
             <i className='fa-regular fa-circle-question mr-2'></i>
-            {quiz.questionCount} Questions
+            {quiz.questions.length} Questions
           </li>
           <li>
             <i className='fa-regular fa-clock mr-2'></i>
@@ -29,7 +25,10 @@ const QuizCard = ({ quiz }) => {
         </ul>
       </div>
       <div className='card-footer'>
-        <Link to='/rules' className='btn btn-primary w-100 txt-center'>
+        <Link
+          to={`/quiz/${quiz._id}`}
+          className='btn btn-primary w-100 txt-center'
+        >
           Take Quiz
         </Link>
       </div>

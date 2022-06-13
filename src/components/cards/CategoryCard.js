@@ -5,7 +5,7 @@ import './card.css';
 const CategoryCard = ({ category }) => {
   return (
     <div className='card flex-grow-1'>
-      <Link to='/quizlist'>
+      <Link to={`/category/${category._id}`}>
         <div className='overlay-container'>
           <img
             src={category.image}

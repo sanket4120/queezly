@@ -24,12 +24,12 @@ function App() {
           <Routes>
             <Route exact path='/' element={<Homepage />} />
             <Route path='/category' element={<Category />} />
+            <Route path='/category/:categoryId' element={<QuizList />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
-            <Route path='/quizlist' element={<QuizList />} />
             <Route path='/' element={<AuthRequired />}>
               <Route path='rules' element={<Rules />} />
-              <Route path='quiz' element={<Quiz />} />
+              <Route path='quiz/:quizId' element={<Quiz />} />
               <Route path='result' element={<Result />} />
               <Route path='account' element={<Account />} />
             </Route>
