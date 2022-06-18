@@ -33,4 +33,4 @@ const Rules = ({ startQuiz, duration }) => {
   );
 };
 
-export default Rules;
+export { Rules };

@@ -8,11 +8,11 @@ import {
   USER_SIGNUP_FAIL,
 } from '../constants/userConstants';
 
-export const initialState = {
+const initialState = {
   auth: {},
 };
 
-export const authReducer = (state, action) => {
+const authReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -33,3 +33,5 @@ export const authReducer = (state, action) => {
       return state;
   }
 };
+
+export { initialState, authReducer };

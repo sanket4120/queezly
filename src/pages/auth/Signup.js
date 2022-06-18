@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
-import useUserSignup from '../../utils/useUserSignup';
+import { useDocumentTitle } from '../../utils/useDocumentTitle';
+import { useUserSignup } from '../../utils/useUserSignup';
 
 const Signup = () => {
+  useDocumentTitle('Queezly | Signup');
+
   const {
     formData,
     handleSubmit,
@@ -123,4 +126,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export { Signup };

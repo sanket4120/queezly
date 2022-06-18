@@ -1,11 +1,14 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getQuizByCategory } from '../../actions/quizActions';
-import QuizCard from '../../components/cards/QuizCard';
-import Loader from '../../components/loader/Loader';
+import { QuizCard } from '../../components/cards/QuizCard';
+import { Loader } from '../../components/loader/Loader';
 import { useQuiz } from '../../context/quizContext';
+import { useDocumentTitle } from '../../utils/useDocumentTitle';
 
 const QuizList = () => {
+  useDocumentTitle('Queezly | Quiz');
+
   const { categoryId } = useParams();
   const {
     setQuiz,
@@ -41,4 +44,4 @@ const QuizList = () => {
   );
 };
 
-export default QuizList;
+export { QuizList };

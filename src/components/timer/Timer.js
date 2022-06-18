@@ -30,4 +30,4 @@ const Timer = ({ time, submitQuiz }) => {
   );
 };
 
-export default Timer;
+export { Timer };

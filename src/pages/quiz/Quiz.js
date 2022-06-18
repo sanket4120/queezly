@@ -1,19 +1,26 @@
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getQuiz } from '../../actions/quizActions';
-import Option from '../../components/currentQuestion/Option';
-import Question from '../../components/currentQuestion/Question';
+import { Option } from '../../components/currentQuestion/Option';
+import { Question } from '../../components/currentQuestion/Question';
 import { useQuiz } from '../../context/quizContext';
-import Loader from '../../components/loader/Loader';
-import './quiz.css';
+import { Loader } from '../../components/loader/Loader';
+import { Rules } from '../rules/Rules';
+import { Timer } from '../../components/timer/Timer';
+import { useUser } from '../../context/userContext';
+import { addResult } from '../../actions/resultActions';
+import { getScore } from '../../utils/resultUtils';
+import { useMessage } from '../../context/messageContext';
+import { useDocumentTitle } from '../../utils/useDocumentTitle';
 import {
   NEXT_QUESTION,
   PREVIOUS_QUESTION,
 } from '../../constants/quizConstants';
-import Rules from '../rules/Rules';
-import Timer from '../../components/timer/Timer';
+import './quiz.css';
 
 const Quiz = () => {
+  useDocumentTitle('Queezly | Play');
+
   const { quizId } = useParams();
   const navigate = useNavigate();
   const {
@@ -22,6 +29,10 @@ const Quiz = () => {
   } = useQuiz();
   const time = useRef();
   const [showRules, setShowRules] = useState(true);
+  const {
+    authState: { userInfo },
+  } = useUser();
+  const { setMessages } = useMessage();
 
   useEffect(() => {
     getQuiz(quizId, setCurrentQuiz);
@@ -38,6 +49,18 @@ const Quiz = () => {
   };
 
   const submitQuiz = () => {
+    const { score } = getScore(currentQuiz);
+
+    const result = {
+      score,
+      userId: userInfo._id,
+      username: `${userInfo.firstName} ${userInfo.lastName}`,
+      category: currentQuiz.category,
+      quiz: currentQuiz.title,
+    };
+
+    addResult(result, setMessages);
+
     navigate('/result', { replace: true });
   };
 
@@ -71,9 +94,12 @@ const Quiz = () => {
                     (option) => (
                       <Option
                         option={option}
-                        id={option.id}
-                        background={option.isSelected && 'primary'}
                         key={option._id}
+                        background={
+                          option._id ===
+                            currentQuiz.questions[currentQuestionIndex]
+                              .selectedOptionId && 'primary'
+                        }
                       />
                     )
                   )}
@@ -112,4 +138,4 @@ const Quiz = () => {
   );
 };
 
-export default Quiz;
+export { Quiz };

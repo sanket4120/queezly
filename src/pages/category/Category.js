@@ -1,36 +1,12 @@
 import { useEffect } from 'react';
 import { getCategories } from '../../actions/categoryActions';
-import CategoryCard from '../../components/cards/CategoryCard';
-import Loader from '../../components/loader/Loader';
+import { CategoryCard } from '../../components/cards/CategoryCard';
+import { Loader } from '../../components/loader/Loader';
 import { useCategory } from '../../context/categoryContext';
+import { useDocumentTitle } from '../../utils/useDocumentTitle';
 
 const Category = () => {
-  // const categories = [
-  //   {
-  //     id: 1,
-  //     categoryName: 'movies',
-  //     image:
-  //       'https://res.cloudinary.com/svj/image/upload/v1652541674/movies_u35yi1.jpg',
-  //   },
-  //   {
-  //     id: 2,
-  //     categoryName: 'technology',
-  //     image:
-  //       'https://res.cloudinary.com/svj/image/upload/v1652541674/technology_plfcs8.jpg',
-  //   },
-  //   {
-  //     id: 3,
-  //     categoryName: 'history',
-  //     image:
-  //       'https://res.cloudinary.com/svj/image/upload/v1652541674/history_pstz1r.jpg',
-  //   },
-  //   {
-  //     id: 4,
-  //     categoryName: 'programming',
-  //     image:
-  //       'https://res.cloudinary.com/svj/image/upload/v1652541674/programming_zjtsdg.jpg',
-  //   },
-  // ];
+  useDocumentTitle('Queezly | Category');
 
   const {
     categoryState: { loading, categories },
@@ -63,4 +39,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export { Category };

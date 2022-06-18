@@ -54,11 +54,7 @@ const currentQuizReducer = (state, action) => {
     case SELECT_OPTION:
       const currentQuestion =
         state.currentQuiz.questions[state.currentQuestionIndex];
-      currentQuestion.options.forEach((option) => {
-        option._id === payload
-          ? (option.isSelected = true)
-          : (option.isSelected = false);
-      });
+      currentQuestion.selectedOptionId = payload;
       return { ...state, questions: { ...state.questions, currentQuestion } };
     default:
       return state;

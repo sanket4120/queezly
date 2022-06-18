@@ -9,4 +9,4 @@ const Question = ({ question, questionIndex, quizLength }) => {
   );
 };
 
-export default Question;
+export { Question };

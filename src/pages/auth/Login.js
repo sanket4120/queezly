@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
+import { useUserLogin } from '../../utils/useUserLogin';
+import { useDocumentTitle } from '../../utils/useDocumentTitle';
 import './auth.css';
-import useUserLogin from '../../utils/useUserLogin';
 
 const Login = () => {
+  useDocumentTitle('Queezly | Login');
+
   const {
     handleChange,
     showPassword,
@@ -89,4 +92,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export { Login };

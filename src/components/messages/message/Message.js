@@ -16,4 +16,4 @@ const Message = ({ message: { id, message, messageType } }) => {
   );
 };
 
-export default Message;
+export { Message };
